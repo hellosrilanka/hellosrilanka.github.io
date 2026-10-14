@@ -5,3 +5,9 @@
   height: 58px;
   object-fit: contain;
 }
+.nav .brand img,
+.footer .brand img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}

@@ -35,3 +35,4 @@ Ready-to-edit static website built with **HTML, CSS and JavaScript**. No build t
 ## Suggested enhancements before a larger launch
 
 Add actual fleet photos, testimonials only with guest permission, a verified Google Business listing, transparent terms, privacy notice, a real domain, analytics with consent as required, optimized locally hosted imagery and a server-backed form only if needed.
+Website deployment update - Hello Sri Lanka

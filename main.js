@@ -1,0 +1,15 @@
+'use strict';
+const $ = (s) => document.querySelector(s);
+const menu = $('#menuToggle');
+if(menu){ menu.addEventListener('click',()=>{const nav=$('#navLinks');const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰';}); }
+const yr=$('#year');if(yr)yr.textContent=new Date().getFullYear();
+for (const group of document.querySelectorAll('[data-filter-group]')){
+ group.addEventListener('click',e=>{const button=e.target.closest('[data-filter]');if(!button)return;group.querySelectorAll('.filter').forEach(b=>b.classList.toggle('active',b===button));const value=button.dataset.filter;const target=group.dataset.filterGroup==='tour'?'.tour-card':'.destination';const property=group.dataset.filterGroup==='tour'?'type':'region';document.querySelectorAll(target).forEach(item=>item.classList.toggle('hidden',value!=='all'&&item.dataset[property]!==value));});
+}
+const days=$('#calcDays'),km=$('#calcKm');
+function calculate(){const d=Math.max(0,Math.min(120,Number(days.value)||0)),k=Math.max(0,Math.min(20000,Number(km.value)||0));$('#dayEstimate').textContent=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(d*80);$('#kmEstimate').textContent='Rs. '+new Intl.NumberFormat('en-US',{maximumFractionDigits:0}).format(k*150+d*5000);$('#kmBreakdown').textContent=`${k.toLocaleString('en-US')} km × Rs.150 + ${d} days × Rs.5,000`;const msg=`Hello Sri Lanka! I'd like to discuss a trip estimate. Days: ${d}. Expected distance: ${k} km. Daily-rate starting subtotal: USD ${d*80}. Distance-rate starting subtotal: LKR ${k*150+d*5000}. Could you confirm the itinerary, inclusions, vehicle and final quote?`;$('#quoteWhatsApp').href='https://wa.me/94717178383?text='+encodeURIComponent(msg);}
+if(days&&km){days.addEventListener('input',calculate);km.addEventListener('input',calculate);calculate();}
+const query=new URLSearchParams(location.search),tour=$('#tour'),vehicle=$('#vehicle');
+if(tour){const map={classic:'7-day classic',highlights:'10-day highlights',coast:'South coast',east:'East coast',hills:'Hill country',custom:'Custom journey'};if(map[query.get('tour')])tour.value=map[query.get('tour')];}
+if(vehicle&&['sedan','kdh'].includes(query.get('vehicle')))vehicle.value=query.get('vehicle')==='kdh'?'KDH van':'Sedan';
+const form=$('#inquiryForm');if(form){form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const value=id=>$('#'+id).value.trim()||'Not specified';const msg=`Hello Sri Lanka! I'd like to enquire about a private Sri Lanka trip.\n\nName: ${value('guestName')}\nCountry: ${value('guestCountry')}\nArrival: ${value('arrivalDate')}\nDays: ${value('tripDays')}\nTravellers: ${value('guests')}\nVehicle: ${value('vehicle')}\nTour: ${value('tour')}\nPricing preference: ${value('pricingOption')}\nNotes: ${value('details')}\n\nPlease let me know availability and a tailored quote. Thank you!`;const url='https://wa.me/94717178383?text='+encodeURIComponent(msg);const opened=window.open(url,'_blank','noopener,noreferrer');if(!opened)location.href=url;});}

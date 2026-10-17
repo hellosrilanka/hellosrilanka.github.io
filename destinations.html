@@ -9,21 +9,57 @@
 <link rel="icon" href="logo.jpeg">
 <style>
 :root{--forest:#123d32;--green:#1c6b50;--lime:#d9efb5;--sand:#f7f5ef;--ink:#1d2924;--muted:#66736c;--white:#fff;--line:#e5e9e3;--shadow:0 16px 44px rgba(19,55,42,.10)}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+*{box-sizing:border-box}html,body{overflow-x:hidden}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
 .topbar{background:var(--forest);color:#eaf4e8;font-size:.86rem;text-align:center;padding:8px 12px}.header,.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(20,60,45,.09)}.nav-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .nav .brand img,.footer .brand img{width:58px;height:58px;object-fit:contain}.brand{display:flex;align-items:center;gap:12px;color:var(--forest);font-weight:900;font-size:1.1rem;line-height:1.2}.brand span small{display:block;font-size:.65rem;color:var(--green);letter-spacing:1px;text-transform:uppercase}
 .nav-links,.navlinks{display:flex;align-items:center;gap:22px}.nav-links a,.navlinks a{color:#3f4c45;font-weight:700;font-size:.91rem;transition:.2s}.nav-links a:hover,.nav-links a.active,.navlinks a:hover{color:var(--green)}
-.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:12px 22px;font-weight:800;cursor:pointer;transition:.2s}.nav-cta,.btn.primary{background:var(--green);color:#fff}.nav-cta:hover,.btn.primary:hover,.btn:hover{background:var(--forest);color:#fff;transform:translateY(-1px)}.btn.white{background:#fff;color:var(--forest)}.btn.outline{border:1px solid var(--green);color:var(--green);background:transparent}.btn.outline:hover{background:var(--green);color:#fff}.btn.dark{background:var(--forest);color:#fff}
+.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:12px 22px;font-weight:800;cursor:pointer;transition:.2s;text-align:center;}.nav-cta,.btn.primary{background:var(--green);color:#fff}.nav-cta:hover,.btn.primary:hover,.btn:hover{background:var(--forest);color:#fff;transform:translateY(-1px)}.btn.white{background:#fff;color:var(--forest)}.btn.outline{border:1px solid var(--green);color:var(--green);background:transparent}.btn.outline:hover{background:var(--green);color:#fff}.btn.dark{background:var(--forest);color:#fff}
 .hamb,.menu-btn{display:none;background:#edf3ec;border:0;border-radius:10px;padding:10px;font-size:1.2rem;cursor:pointer}
 .pagehero{background-color:#092a20;padding:100px 0;color:white;text-align:center;background-image:linear-gradient(100deg,rgba(9,42,32,.9),rgba(9,42,32,.7)),url('sigiriya.jpg');background-size:cover;background-position:center}.pagehero h1{font-size:clamp(2.6rem,5vw,4rem);margin:15px 0}.pagehero p{font-size:1.1rem;max-width:600px;margin:0 auto;color:#eef5ef}.eyebrow{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;font-weight:900;color:var(--lime);margin-bottom:8px}
 .section{padding:82px 0}.section.alt{background:var(--sand)}.section-head,.section-top{max-width:720px;margin:0 auto 36px;text-align:center}.kicker{color:var(--green);text-transform:uppercase;letter-spacing:1.8px;font-size:.76rem;font-weight:900}.section h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.12;letter-spacing:-1px;margin:10px 0 13px;color:var(--forest)}.section-head p{color:var(--muted);margin:0}
 .grid3,.dest-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.dest-card{position:relative;border-radius:20px;overflow:hidden;height:280px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 26px rgba(20,55,42,.06)}.dest-card img{width:100%;height:100%;object-fit:cover;transition:.5s}.dest-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,50,35,.8) 0%,transparent 60%)}.dest-card:hover img{transform:scale(1.05)}.dest-body{padding:20px;position:absolute;bottom:0;width:100%;z-index:3;color:white}.dest-body .tag{font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--lime);font-weight:900}.dest-body h3{margin:6px 0;color:#fff;font-size:1.35rem}.dest-body p{margin:0 0 14px;color:#eef5ef}
+.dest-card{position:relative;border-radius:20px;overflow:hidden;height:280px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 26px rgba(20,55,42,.06)}.dest-card img{width:100%;height:100%;object-fit:cover;transition:.5s}.dest-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,50,35,.8) 0%,transparent 60%)}.dest-card:hover img{transform:scale(1.05)}.dest-body{padding:20px;position:absolute;bottom:0;width:100%;z-index:3;color:white;box-sizing:border-box;left:0;right:0;}.dest-body .tag{display:inline-block;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--lime);font-weight:900;margin-bottom:4px;word-break:break-word;}.dest-body h3{margin:2px 0 6px;color:#fff;font-size:1.35rem;line-height:1.2;}.dest-body p{margin:0 0 5px;color:#eef5ef;font-size:.9rem;line-height:1.4;}
 .banner{background:var(--forest);border-radius:24px;padding:50px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}.banner h2{color:#fff;margin:0 0 10px}.banner p{margin:0;color:#d6e7db;font-size:1.1rem;max-width:500px}
-.footer{background:#091b14;color:#a9c0b3;padding:60px 0 30px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}.footer-grid .brand,.footer-inner .logo{color:#fff;display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.1rem}.footer-grid .brand img,.footer-inner .logo img{height:45px;filter:brightness(0) invert(1)}.footer-grid p{font-size:.9rem;line-height:1.6;margin-top:20px}.footer h4{color:#fff;font-size:1.1rem;margin:0 0 20px}.footer-grid a{display:block;margin:10px 0;transition:.2s}.footer-grid a:hover{color:#fff}.footer-bottom,.footer-inner{border-top:1px solid rgba(255,255,255,.1);padding-top:25px;display:flex;justify-content:space-between;font-size:.85rem;flex-wrap:wrap;gap:15px}
+.footer{background:#091b14;color:#a9c0b3;padding:60px 0 30px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}.footer-grid .brand,.footer-inner .logo{color:#fff;display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.1rem}.footer-grid .brand img,.footer-inner .logo img{height:45px;filter:brightness(0) invert(1)}.footer-grid p{font-size:.9rem;line-height:1.6;margin-top:20px}.footer h4{color:#fff;font-size:1.1rem;margin:0 0 20px}.footer-grid a{display:block;margin:10px 0;transition:.2s}.footer-grid a:hover{color:#fff}.footer-bottom,.footer-inner{border-top:1px solid rgba(255,255,255,.1);padding-top:25px;display:flex;justify-content:space-between;font-size:.85rem;flex-wrap:wrap;gap:15px;align-items:center;}
+.footer-links{display:flex; gap:15px; flex-wrap:wrap; justify-content:center;}
 .wa-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 25px;border-radius:999px;font-weight:800;box-shadow:0 10px 30px rgba(37,211,102,.3);z-index:40;transition:.2s}.wa-float:hover{transform:translateY(-3px)}
-@media(max-width:980px){.grid3,.dest-grid,.footer-grid{grid-template-columns:repeat(2,1fr)}.nav-links,.navlinks{gap:13px}.nav-links a,.navlinks a{font-size:.83rem}}
-@media(max-width:760px){.wrap{width:min(100% - 30px,1160px)}.nav-inner,.nav{min-height:68px}.hamb,.menu-btn{display:block}.nav-links,.navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;padding:20px;flex-direction:column;border-bottom:1px solid var(--line);box-shadow:var(--shadow);align-items:stretch}.nav-links.show,.navlinks.open{display:flex}.nav-links a,.navlinks a{padding:8px 0;font-size:1rem}.nav-cta{display:none}.grid3,.dest-grid,.footer-grid{grid-template-columns:1fr}.section{padding:60px 0}.banner{padding:30px;flex-direction:column;text-align:center}.banner .btn{width:100%}.dest-card{height:230px}}
+
+@media(max-width:980px){
+  .grid3,.dest-grid,.footer-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links,.navlinks{gap:13px}
+  .nav-links a,.navlinks a{font-size:.83rem}
+}
+
+@media(max-width:760px){
+  .wrap{width:min(100% - 30px,1160px)}
+  .nav-inner,.nav{min-height:68px}
+  .hamb,.menu-btn{display:block}
+  .nav-links,.navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;padding:20px;flex-direction:column;border-bottom:1px solid var(--line);box-shadow:var(--shadow);align-items:stretch}
+  .nav-links.show,.navlinks.open{display:flex}
+  .nav-links a,.navlinks a{padding:12px 0;font-size:1rem;border-bottom:1px solid var(--line)}
+  .nav-links a:last-child,.navlinks a:last-child{border-bottom:none}
+  .nav-cta{display:none}
+  .grid3,.dest-grid,.footer-grid{grid-template-columns:1fr}
+  
+  .brand img{width:45px; height:45px;}
+  .brand{font-size:1rem;}
+  
+  .pagehero{padding:60px 0;}
+  .section{padding:55px 0}
+  
+  .banner{padding:35px 25px;flex-direction:column;text-align:center;gap:20px;}
+  .banner .btn{width:100%}
+  
+  .dest-card{height:250px}
+  .dest-body{padding:15px;}
+  
+  .footer-inner{flex-direction:column; text-align:center;}
+}
+
+@media(max-width:480px){
+  .pagehero h1{font-size:2.2rem;}
+  .dest-card{height:230px}
+}
 </style>
 </head>
 <body>
@@ -55,79 +91,15 @@
 <section class="section" id="destinations">
  <div class="wrap">
   <div class="dest-grid">
-   
+    
    <article class="dest-card"><img loading="lazy" src="sigiriya.jpg" alt="Sigiriya Rock Fortress"><div class="dest-body"><span class="tag">Heritage</span><h3>Sigiriya</h3><p>Climb the iconic Lion Rock, explore its ancient water gardens.</p></div></article>
-   
+    
    <article class="dest-card"><img loading="lazy" src="anuradhapura.jpg" alt="Anuradhapura Stupa"><div class="dest-body"><span class="tag">Ancient Ruins</span><h3>Anuradhapura</h3><p>Discover the ancient capital of Sri Lanka and sacred bodhi trees.</p></div></article>
-   
+    
    <article class="dest-card"><img loading="lazy" src="kandy.jpg" alt="Temple of the Tooth in Kandy"><div class="dest-body"><span class="tag">Culture</span><h3>Kandy</h3><p>Visit the sacred Temple of the Tooth and traditions.</p></div></article>
-   
+    
    <article class="dest-card"><img loading="lazy" src="nuwaraeliya.jpg" alt="Tea plantations near Nuwara Eliya"><div class="dest-body"><span class="tag">Hill country</span><h3>Nuwara Eliya</h3><p>Take in rolling tea estates, cool mountain air and gardens.</p></div></article>
-   
+    
    <article class="dest-card"><img loading="lazy" src="ella.jpg" alt="Nine Arch Bridge in Ella"><div class="dest-body"><span class="tag">Nature & adventure</span><h3>Ella</h3><p>Enjoy mountain viewpoints, waterfalls and the Nine Arch Bridge.</p></div></article>
-   
-   <article class="dest-card"><img loading="lazy" src="mirissa.jpg" alt="Mirissa Beach"><div class="dest-body"><span class="tag">Coast</span><h3>Hiriketiya / Mirissa</h3><p>Unwind at curved tropical bays known for surf culture.</p></div></article>
-
-   <article class="dest-card"><img loading="lazy" src="trinco.jpg" alt="Trincomalee Beach"><div class="dest-body"><span class="tag">East Coast</span><h3>Trincomalee</h3><p>Experience pristine white-sand beaches and Pigeon Island.</p></div></article>
-
-   <article class="dest-card"><img loading="lazy" src="galle.jpg" alt="Galle Fort Lighthouse"><div class="dest-body"><span class="tag">Coastal history</span><h3>Galle</h3><p>Walk the historic fort streets and enjoy sea views.</p></div></article>
-   
-   <article class="dest-card"><img loading="lazy" src="yala.jpg" alt="Wildlife landscape in Yala National Park"><div class="dest-body"><span class="tag">Wildlife</span><h3>Yala National Park</h3><p>Spot elephants, leopards, and exotic birds on a thrilling safari.</p></div></article>
-   
-  </div>
- </div>
-</section>
-
-<section class="section soft" id="gallery">
- <div class="wrap"><div class="section-head"><div class="kicker">Island moments</div><h2>Gallery</h2><p>A glimpse of the landscapes, heritage and coastal experiences you can include in your journey.</p></div>
-  <div class="dest-grid">
-   <article class="dest-card"><img loading="lazy" src="nuwaraeliya.jpg" alt="Green hills and tea estates"><div class="dest-body"><h3>Green hill country</h3><p>Scenic railway views, endless tea estates, and mountain walks.</p></div></article>
-   <article class="dest-card"><img loading="lazy" src="mirissa.jpg" alt="Tropical coast"><div class="dest-body"><h3>Tropical coast</h3><p>Relaxed beach days along the southern shoreline.</p></div></article>
-   <article class="dest-card"><img loading="lazy" src="galle.jpg" alt="Galle Fort Lighthouse by the sea"><div class="dest-body"><h3>Heritage by the sea</h3><p>Historic streets and ocean-side sunsets.</p></div></article>
-  </div>
- </div>
-</section>
-
-<section class="section alt">
-  <div class="wrap">
-    <div class="banner">
-      <div>
-        <div class="eyebrow" style="color:#80e6db">YOUR JOURNEY. YOUR WAY.</div>
-        <h2 style="margin-top:0;">Ready to explore Sri Lanka?</h2>
-        <p>Tell us your arrival date, travel style and must-see spots. We’ll help you plan a flexible private journey.</p>
-      </div>
-      <a class="btn white" href="https://wa.me/94717178383">Build my trip ↗</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer class="footer">
-<div class="wrap footer-inner">
-  <div>
-    <a class="logo" href="index.html"><img src="logo.jpeg" alt="Hello Sri Lanka Logo" style="height:45px; filter: brightness(0) invert(1);"></a>
-    <div class="small" style="margin-top:8px;">Discover the island your way.</div>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="destinations.html">Destinations</a><a href="tours.html">Tour Packages</a><a href="contact.html">Contact Us</a>
-  </div>
-  <div class="small">© 2026 Hello Sri Lanka</div>
-</div>
-</footer>
-<a class="wa-float" href="https://wa.me/94717178383" target="_blank" rel="noopener" aria-label="Chat with Hello Sri Lanka on WhatsApp">☏ WhatsApp</a>
-<script>
-const menuButton = document.querySelector('.menu-btn');
-const nav = document.querySelector('.navlinks');
-menuButton.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(open));
-  menuButton.textContent = open ? '✕' : '☰';
-});
-nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.textContent = '☰';
-}));
-</script>
-</body>
-</html>
+    
+   <article class="dest-card"><img loading="lazy" src="mirissa.jpg" alt="Mirissa Beach"><div class="dest-body"><span class="tag">Coast</span>
